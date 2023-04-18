@@ -1,0 +1,14 @@
+{
+  "name": "clutch",
+  "version": "1.0.0",
+  "description": "Blitz.gg's own home-brewed UI library",
+  "main": "src/index.mjs",
+  "author": "Blitz, Inc.",
+  "private": true,
+  "peerDependencies": {
+    "@headlessui/react": "^1.6.1",
+    "goober": "^2.0.38",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}

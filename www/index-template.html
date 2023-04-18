@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'nonce-NONCE'; img-src * data:; style-src * 'unsafe-inline'; script-src * 'nonce-NONCE' 'unsafe-eval';"
+    />
+    <!--@SSR_META-->
+    <!--@SSR_PRELOAD-->
+    <style nonce="NONCE">
+      /*@SSR_GLOBAL_STYLES*/
+      *::-webkit-scrollbar {
+        width: var(--scrollbar-width);
+      }
+      *::-webkit-scrollbar-thumb {
+        background-color: var(--shade3-50);
+        border-radius: 0;
+        border: none;
+      }
+    </style>
+    <!--@SSR_STYLE_TAG-->
+    <!--@SSR_INLINE_SCRIPT-->
+    <script nonce="NONCE" type="module" src="SCRIPT_ENTRY_POINT"></script>
+  </head>
+  <!-- TODO: remove background style. https://github.com/electron/electron/issues/31019#issuecomment-1010826081 -->
+  <body style="background: rgb(14, 16, 21)">
+    <main id="app"><!--@SSR_APP_MARKUP--></main>
+  </body>
+</html>

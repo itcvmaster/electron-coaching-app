@@ -1,0 +1,118 @@
+root: true
+
+env:
+  browser: true
+  node: true
+  es2021: true
+
+parserOptions:
+  ecmaVersion: 2022
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+
+plugins:
+  - i18next
+  - simple-import-sort
+
+extends:
+  - eslint:recommended
+  - plugin:blitz/all
+  - plugin:react/recommended
+  - plugin:react-hooks/recommended
+  - plugin:import/recommended
+  - plugin:valtio/recommended
+  - prettier
+
+rules:
+  blitz/no-i18n-namespace-specification: warn
+  array-callback-return: warn
+  no-await-in-loop: warn
+  eqeqeq: error
+  no-console: error
+  no-constructor-return: error
+  no-duplicate-imports: warn
+  no-self-compare: error
+  no-promise-executor-return: warn
+  no-template-curly-in-string: error
+  no-unmodified-loop-condition: warn
+  no-unreachable-loop: warn
+  no-unused-private-class-members: warn
+  prefer-const: warn
+  no-restricted-properties:
+    - error
+    - object: document
+      message: Do not read/write document, use "@/util/global-whitelist.mjs" instead
+    - object: globalThis
+      message: Do not read/write globalThis, use "@/util/global-whitelist.mjs" instead
+    - object: window
+      message: Do not read/write window, use "@/util/global-whitelist.mjs" instead
+  no-restricted-globals:
+    - error
+    - name: setInterval
+      message: Use setTimeout instead
+  no-var: error
+  no-eq-null: warn
+  no-extend-native: error
+  no-useless-return: error
+  no-useless-rename: error
+  no-useless-constructor: error
+  no-useless-concat: error
+  no-useless-computed-key: error
+  no-useless-call: error
+  no-unused-expressions: error
+  no-unneeded-ternary: error
+  no-undef-init: error
+  no-sequences: warn
+  no-return-await: error
+  no-return-assign: error
+  no-proto: error
+  no-new-wrappers: error
+  no-new-object: error
+  no-new-func: error
+  no-loop-func: warn
+  no-lonely-if: warn
+  no-lone-blocks: warn
+  no-iterator: error
+  no-invalid-this: error
+  no-implied-eval: error
+  no-implicit-globals: error
+  no-extra-bind: error
+  no-else-return: warn
+  no-caller: error
+  prefer-promise-reject-errors: error
+  require-await: error
+  react/prop-types: off
+  no-prototype-builtins: off
+  no-sparse-arrays: off
+  valtio/state-snapshot-rule: off
+  i18next/no-literal-string:
+    - error
+    - markupOnly: true
+      onlyAttribute:
+        - text
+  simple-import-sort/exports: error
+  simple-import-sort/imports:
+    - error
+    - groups:
+        # Side effect imports
+        - ["^\\u0000"]
+        # `react` related packages followed by packages that start with a letter
+        #  (or digit or underscore), or `@` followed by a letter
+        - ["^react", "^goober", "^@?\\w"]
+        # `clutch` design libary
+        - ["^clutch$"]
+        # Absolute imports
+        - ["^"]
+        # Relative imports
+        - ["^\\."]
+  import/first: error
+  import/newline-after-import: error
+  import/no-duplicates: error
+
+settings:
+  import/resolver:
+    build-scripts/eslint-resolver.cjs:
+      -
+  react:
+    version: detect

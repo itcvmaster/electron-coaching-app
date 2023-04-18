@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: blitz-app
+    env: node
+    plan: starter
+    buildCommand: git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf ssh://git@github.com;npm cache verify; npm install
+    startCommand: npm run test:unit && npm run build && npm run ssr
+    envVars:
+      - key: NODE_ENV
+        value: production

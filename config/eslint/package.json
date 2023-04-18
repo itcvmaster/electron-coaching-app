@@ -1,0 +1,11 @@
+{
+  "name": "eslint-plugin-blitz",
+  "version": "1.0.0",
+  "description": "Blitz App ESLint plugin & rules",
+  "main": "eslint.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Blitz, Inc.",
+  "license": "UNLICENSED"
+}

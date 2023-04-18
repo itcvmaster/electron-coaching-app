@@ -1,0 +1,8 @@
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-syntax
+
+# CLUTCH DESIGN LIBRARY
+/clutch/src/ @john-riordan
+
+# sensitive parts
+/src/__main__/ @gr0uch
+/src/shared/ @gr0uch

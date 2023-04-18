@@ -1,0 +1,8 @@
+src/i18n/__*.mjs
+src/vendor/*
+src/inline-assets/*
+www/js/*
+*.md
+*.json
+*.bin
+.github/*

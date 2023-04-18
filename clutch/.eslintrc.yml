@@ -1,0 +1,6 @@
+extends: ../.eslintrc.yml
+
+settings:
+  import/resolver:
+    ../build-scripts/eslint-resolver.cjs:
+      -
